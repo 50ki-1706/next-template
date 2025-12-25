@@ -24,9 +24,7 @@ export default function Home() {
       <nav className="bg-white dark:bg-gray-800 shadow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-              Todo App
-            </h1>
+            <h1 className="text-xl font-bold text-gray-900 dark:text-white">Todo App</h1>
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-600 dark:text-gray-300">
                 {session.user.name || session.user.email}

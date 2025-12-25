@@ -7,7 +7,7 @@ A full-stack Todo application built with modern web technologies.
 - **Frontend**: Next.js 16, React 19, TypeScript
 - **Styling**: Tailwind CSS 4, Headless UI
 - **Authentication**: Better Auth (JWT + OAuth - Google & GitHub)
-- **Database**: SQLite with Drizzle ORM
+- **Database**: PostgreSQL with Drizzle ORM
 - **Data Fetching**: SWR
 - **Code Quality**: Biome (linter & formatter)
 
@@ -21,11 +21,38 @@ A full-stack Todo application built with modern web technologies.
 - Responsive design
 - Type-safe database operations with Drizzle ORM
 
-## Getting Started
+## Docker Quick Start (Recommended)
+
+最も簡単に環境を構築する方法です。Docker と Docker Compose がインストールされている必要があります。
+
+1. **環境変数の準備**:
+   `.env.example` を `.env` にコピーし、必要に応じて値を編集します。
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   ※ `DATABASE_URL` はデフォルトで Docker 用の設定になっています。
+
+2. **起動**:
+
+   ```bash
+   docker compose up -d
+   ```
+
+   これでアプリケーション ([http://localhost:3000](http://localhost:3000)) と PostgreSQL が立ち上がります。
+
+3. **データベースの初期化**:
+   コンテナが起動している状態で以下を実行します。
+   ```bash
+   docker compose exec app pnpm db:push
+   ```
+
+## Getting Started (Local Development)
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 25+
 - pnpm (recommended) or npm
 
 ### Installation
@@ -46,10 +73,12 @@ cp .env.example .env.local
 ```
 
 Required environment variables:
+
 - `BETTER_AUTH_SECRET`: A secret key for JWT signing (generate a random string)
 - `BETTER_AUTH_URL`: Your app URL (http://localhost:3000 for development)
 
 Optional (for OAuth):
+
 - `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`
 - `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET`
 
@@ -76,6 +105,15 @@ Open [http://localhost:3000](http://localhost:3000) to see the app.
 - `pnpm format` - Format code with Biome
 - `pnpm db:push` - Push database schema changes
 - `pnpm db:studio` - Open Drizzle Studio to view database
+
+## Docker Commands
+
+Docker 環境での開発に便利なコマンドです。
+
+- `docker compose build` - イメージの再ビルド
+- `docker compose logs -f` - ログの表示
+- `docker compose down -v` - 環境の停止とボリューム（データ）の削除
+- `docker compose exec app pnpm <script>` - アプリコンテナ内でのスクリプト実行
 
 ## Project Structure
 

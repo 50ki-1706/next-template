@@ -28,12 +28,12 @@
 
 ## 技術スタック
 
-- Node.js 18+
+- Node.js 25+
 - pnpm (recommended) or npm
 - **Frontend**: Next.js 16, React 19, TypeScript
 - **Styling**: Tailwind CSS 4, Headless UI
 - **Authentication**: Better Auth (JWT + OAuth - Google & GitHub)
-- **Database**: SQLite with Drizzle ORM
+- **Database**: PostgreSQL with Drizzle ORM
 - **Data Fetching**: SWR
 - **Code Quality**: Biome (linter & formatter)
 

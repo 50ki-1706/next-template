@@ -1,0 +1,32 @@
+# --- 1. 大容量・環境依存 (ビルド速度と安定性) ---
+node_modules/
+.next/
+dist/
+out/
+*.log
+
+# --- 2. セキュリティ (機密情報) ---
+.env*
+!.env.example
+
+# --- 3. 開発ツール・メタデータ (不要なファイル) ---
+.git/
+.github/
+.vscode/
+.gitignore
+.dockerignore
+README.md
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+*.md
+
+# --- 4. データベース関連 (永続データ) ---
+*.db
+*.db-journal
+postgres_data/
+
+# --- 除外してはいけない (含めるべき) ファイルの例 ---
+# !pnpm-lock.yaml  <-- LOCKファイルは必要
+# !drizzle/        <-- マイグレーションファイルは必要
+# !drizzle.config.ts <-- DB操作には必要
